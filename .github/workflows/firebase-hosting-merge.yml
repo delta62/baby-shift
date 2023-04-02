@@ -1,0 +1,30 @@
+name: Deploy to Firebase Hosting Prod
+"on":
+  push:
+    branches:
+      - main
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: Check out code
+      - uses: actions/setup-node@v3
+        name: Install NodeJS
+        with:
+          node-version: 16
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: "^7.26.1"
+          run_install: true
+      - name: Build source
+        run: pnpm run build
+      - name: Deploy to Firebase hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_BABYSHIFT_7BDA5 }}"
+          projectId: babyshift-7bda5
+          channelId: live
