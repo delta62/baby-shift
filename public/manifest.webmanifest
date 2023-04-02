@@ -1,0 +1,25 @@
+{
+  "short_name": "Baby",
+  "name": "Baby Shift",
+  "icons": [
+    {
+      "sizes": "192x192",
+      "src": "img/icon_192.png",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "sizes": "512x512",
+      "src": "img/icon_512.png",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#111122",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "dir": "ltr",
+  "theme_color": "#111122",
+  "id": "/"
+}
