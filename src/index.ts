@@ -1,3 +1,5 @@
+import allEmoji from "./emoji";
+
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
     .register("/sw.js")
@@ -5,8 +7,6 @@ if ("serviceWorker" in navigator) {
 }
 
 const HOUR_OF_DAY = 1000 * 60 * 60;
-const EMOJI_START = 0x1f600;
-const EMOJI_END = 0x1f6ff;
 
 let emoji = document.getElementById("emoji")!;
 let onCall = document.getElementById("name")!;
@@ -72,10 +72,8 @@ let mulberry32 = (seed: number) => {
 
 let randomEmoji = (seed: number) => {
   let zeroToOne = mulberry32(seed)();
-  let codePoint = Math.floor(
-    zeroToOne * (EMOJI_END - EMOJI_START) + EMOJI_START
-  );
-  return String.fromCodePoint(codePoint);
+  let codePoint = Math.floor(zeroToOne * allEmoji.length);
+  return allEmoji[codePoint];
 };
 
 updateUI();
