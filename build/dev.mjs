@@ -1,5 +1,6 @@
 import * as esbuild from "esbuild";
 import copy from "esbuild-plugin-copy";
+import clean from "esbuild-plugin-clean";
 
 let ctx = await esbuild.context({
   entryPoints: ["src/index.ts", "src/sw.ts"],
@@ -16,7 +17,9 @@ let ctx = await esbuild.context({
       },
       watch: true,
       copyOnStart: true,
-      verbose: true,
+    }),
+    clean({
+      patterns: ["./dist"],
     }),
   ],
 });
