@@ -4,14 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "tsc --watch"
+    "build": "node build/prod.mjs",
+    "start": "node build/dev.mjs"
   },
   "keywords": [],
   "author": "Sam Noedel <sam.noedel@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "firebase-tools": "^11.25.2",
+    "esbuild": "^0.17.15",
+    "esbuild-plugin-copy": "^2.1.1",
     "typescript": "^5.0.3"
   }
 }
