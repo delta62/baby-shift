@@ -4,41 +4,14 @@
 }
 
 html,
-body {
-  display: flex;
-  flex-direction: column;
+body,
+#root {
   height: 100%;
-  overflow: hidden;
 }
 
 body {
-  align-items: center;
   background: #112;
   color: #ccc;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 2rem;
-}
-
-.content {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  justify-content: center;
-  padding-bottom: 20vh;
-}
-
-#name {
-  margin: 1rem 0 2rem;
-}
-
-#clock {
-  font-weight: bold;
-  margin: 2rem 0;
-}
-
-#until {
   font-size: 1.2rem;
-  font-style: italic;
-  font-weight: lighter;
 }

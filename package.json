@@ -11,9 +11,35 @@
   "author": "Sam Noedel <sam.noedel@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@jgoz/esbuild-plugin-typecheck": "^3.0.2",
+    "@types/react": "^18.0.33",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-redux": "^7.1.25",
+    "dotenv": "^16.0.3",
     "esbuild": "^0.17.15",
     "esbuild-plugin-clean": "^1.0.1",
     "esbuild-plugin-copy": "^2.1.1",
+    "esbuild-sass-plugin": "^2.8.0",
+    "postcss": "^8.4.21",
+    "postcss-modules": "^6.0.0",
     "typescript": "^5.0.3"
+  },
+  "dependencies": {
+    "@delta62/firebase-client": "^0.1.0",
+    "@delta62/micro-form": "^0.1.0",
+    "@delta62/micro-router": "^2.0.0",
+    "@reduxjs/toolkit": "^1.9.3",
+    "classnames": "^2.3.2",
+    "date-fns": "^2.29.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "redux-localstorage": "^0.4.1"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "bracketSpacing": true,
+    "arrowParens": "avoid"
   }
 }
