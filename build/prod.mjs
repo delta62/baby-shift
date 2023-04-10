@@ -5,9 +5,7 @@ import * as typeCheck from '@jgoz/esbuild-plugin-typecheck'
 import { sassPlugin, postcssModules } from 'esbuild-sass-plugin'
 
 if (['API_KEY', 'PROJECT_ID'].some(name => !process.env[name])) {
-  throw new Error(
-    'API_KEY and PROJECT_ID must be set. Check your .env file? SEO: dotenv'
-  )
+  throw new Error('API_KEY and PROJECT_ID must be set.')
 }
 
 await esbuild.build({
