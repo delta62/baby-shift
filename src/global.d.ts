@@ -1,7 +1,11 @@
-declare module '*.module.scss'
+declare module '*.module.scss' {
+  const classes: Record<string, string>
+  export default classes
+}
 
 declare const API_KEY: string
 declare const PROJECT_ID: string
+declare const VERSION: string
 
 declare module 'redux-localstorage' {
   import { StoreEnhancer } from '@reduxjs/toolkit'

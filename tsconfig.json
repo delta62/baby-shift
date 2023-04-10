@@ -11,11 +11,19 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@clients/*": ["./src/clients/*"],
+      "@clients": ["./src/clients/index"],
       "@components": ["./src/components/index"],
       "@hooks": ["./src/hooks/index"],
       "@store": ["./src/store/index"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "camelCaseOnly"
+        }
+      }
+    ]
   },
   "include": ["src/*"]
 }

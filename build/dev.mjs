@@ -5,6 +5,9 @@ import { sassPlugin, postcssModules } from 'esbuild-sass-plugin'
 import * as typeCheck from '@jgoz/esbuild-plugin-typecheck'
 import http from 'http'
 import dotenv from 'dotenv'
+import fs from 'fs/promises'
+
+let pkg = JSON.parse(await fs.readFile('./package.json', { encoding: 'utf-8' }))
 
 dotenv.config()
 if (['API_KEY', 'PROJECT_ID'].some(name => !process.env[name])) {
@@ -60,6 +63,7 @@ let ctx = await esbuild.context({
   define: {
     API_KEY: JSON.stringify(process.env.API_KEY),
     PROJECT_ID: JSON.stringify(process.env.PROJECT_ID),
+    VERSION: JSON.stringify(pkg.version),
   },
   plugins: [
     copy({

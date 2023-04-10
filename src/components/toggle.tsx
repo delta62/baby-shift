@@ -4,7 +4,7 @@ import {
   useAddLogMutation,
   useGetHistoryState,
   useUpdateLogMutation,
-} from '@clients/history'
+} from '@clients'
 import { getUserId, getIsAsleep, getMostRecentLog } from '@store'
 import { getRandomEmoji } from '../emoji'
 import styles from './toggle.module.scss'

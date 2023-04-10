@@ -1,6 +1,6 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit'
 import { login as fbLogin, signup as fbSignup } from '@delta62/firebase-client'
-import { Refresh } from '@delta62/firebase-client/dist/auth'
+import { RefreshResponse } from '@delta62/firebase-client'
 
 export interface SignupArgs {
   email: string
@@ -23,4 +23,4 @@ export let login = createAsyncThunk(
   }
 )
 
-export let tokenRefreshed = createAction<Refresh>('TOKEN_REFRESHED')
+export let tokenRefreshed = createAction<RefreshResponse>('TOKEN_REFRESHED')

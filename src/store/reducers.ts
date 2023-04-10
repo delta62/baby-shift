@@ -1,8 +1,8 @@
 import { createReducer } from '@reduxjs/toolkit'
 import { signup, login, tokenRefreshed } from './action-creators'
-import { Login } from '@delta62/firebase-client/dist/auth'
+import { LoginResponse } from '@delta62/firebase-client'
 
-export type State = Login | null
+export type State = LoginResponse | null
 
 export let auth = createReducer<State>(null, builder => {
   builder

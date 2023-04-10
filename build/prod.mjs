@@ -1,12 +1,15 @@
 import * as esbuild from 'esbuild'
-import copy from 'esbuild-plugin-copy'
-import clean from 'esbuild-plugin-clean'
 import * as typeCheck from '@jgoz/esbuild-plugin-typecheck'
+import clean from 'esbuild-plugin-clean'
+import copy from 'esbuild-plugin-copy'
+import fs from 'fs/promises'
 import { sassPlugin, postcssModules } from 'esbuild-sass-plugin'
 
 if (['API_KEY', 'PROJECT_ID'].some(name => !process.env[name])) {
   throw new Error('API_KEY and PROJECT_ID must be set.')
 }
+
+let pkg = JSON.parse(await fs.readFile('./package.json', { encoding: 'utf-8' }))
 
 await esbuild.build({
   entryPoints: ['src/index.tsx', 'src/sw.ts'],
@@ -15,6 +18,7 @@ await esbuild.build({
   define: {
     API_KEY: JSON.stringify(process.env.API_KEY),
     PROJECT_ID: JSON.stringify(process.env.PROJECT_ID),
+    VERSION: JSON.stringify(pkg.version),
   },
   outdir: 'dist',
   plugins: [

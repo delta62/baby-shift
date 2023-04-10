@@ -1,13 +1,13 @@
 import { HistoryItem } from '@components'
-import { useGetLogsQuery } from '@clients/history'
+import { useGetLogsQuery } from '@clients'
+import { getHistoryAsItems } from '@store'
 import styles from './history-list.module.scss'
 
 export let HistoryList = () => {
   let { items } = useGetLogsQuery(undefined, {
-    pollingInterval: 15_000,
-    selectFromResult: ({ data }) => ({
-      items: data?.slice().sort((a: any, b: any) => b.up - a.up) ?? [],
-    }),
+    pollingInterval: 1_000 * 60 * 15,
+    refetchOnFocus: true,
+    selectFromResult: getHistoryAsItems,
   })
 
   return (
@@ -16,7 +16,7 @@ export let HistoryList = () => {
       <hr className={styles.divider} />
       <div className={styles.scrollContainer}>
         <ol className={styles.list}>
-          {items.map((item: any) => (
+          {items.map(item => (
             <HistoryItem key={item.up} {...item} />
           ))}
         </ol>

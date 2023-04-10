@@ -1,11 +1,11 @@
-import { useGetHistoryState } from '@clients/history'
+import { useGetHistoryState } from '@clients'
 import { getIsAsleep } from '@store'
 import styles from './status.module.scss'
 
 export let Status = () => {
   let { data: history = [] } = useGetHistoryState(undefined)
   let isAsleep = getIsAsleep(history)
-  let status = isAsleep ? 'asleep' : 'awake'
+  let status = isAsleep ? ('asleep' as const) : ('awake' as const)
   let emoji = isAsleep ? '😴' : '👶'
 
   return (

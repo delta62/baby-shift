@@ -1,4 +1,4 @@
-const CACHE_NAME = `baby-shift-0.2.0`
+const CACHE_NAME = `baby-shift-${VERSION}`
 
 self.addEventListener('install', event => {
   event.waitUntil(
