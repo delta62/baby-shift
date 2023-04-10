@@ -71,8 +71,10 @@ export interface UpdateArgs {
 
 export let historyApi = createApi({
   baseQuery,
+  tagTypes: ['History'],
   endpoints: build => ({
     addLog: build.mutation({
+      invalidatesTags: ['History'],
       query: (document: History) => ({
         path: 'history',
         type: 'create',
@@ -80,6 +82,7 @@ export let historyApi = createApi({
       }),
     }),
     updateLog: build.mutation({
+      invalidatesTags: ['History'],
       query: (update: UpdateArgs) => ({
         path: `history/${update.id}`,
         type: 'update',
@@ -87,6 +90,7 @@ export let historyApi = createApi({
       }),
     }),
     getLogs: build.query({
+      providesTags: ['History'],
       query: () => ({
         path: 'history',
         type: 'list',

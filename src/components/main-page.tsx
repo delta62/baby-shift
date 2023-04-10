@@ -2,7 +2,6 @@ import { CurrentTime, Status, Toggle, HistoryList } from '@components'
 import { Redirect } from '@delta62/micro-router'
 import { State, getIsLoggedIn } from '@store'
 import { useSelector } from 'react-redux'
-import classnames from 'classnames'
 import styles from './main-page.module.scss'
 
 export let MainPage = () => {
