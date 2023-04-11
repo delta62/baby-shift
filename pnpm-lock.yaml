@@ -3,10 +3,10 @@ lockfileVersion: '6.0'
 dependencies:
   '@delta62/firebase-client':
     specifier: ^1.0.0
-    version: 1.0.0
+    version: link:../game-calendar/packages/firebase-client
   '@delta62/micro-form':
-    specifier: ^0.1.0
-    version: 0.1.0(classnames@2.3.2)(react@18.2.0)
+    specifier: ^0.3.1
+    version: 0.3.1(react@18.2.0)
   '@delta62/micro-router':
     specifier: ^2.0.0
     version: 2.0.0(react@18.2.0)
@@ -85,17 +85,11 @@ packages:
     dependencies:
       regenerator-runtime: 0.13.11
 
-  /@delta62/firebase-client@1.0.0:
-    resolution: {integrity: sha512-S/j6xOx75/KQfkoHWTUvTZ/RBGrccmpNc0KzrwTSo7PwniGdSFoL7JnEAxi1oNK5N1Hni6hjXHMsdA9uurOeQA==}
-    dev: false
-
-  /@delta62/micro-form@0.1.0(classnames@2.3.2)(react@18.2.0):
-    resolution: {integrity: sha512-BG2/B7Gqdnc51vHnRLTT/eqkyL04SXg7MucN6ecma1RjgYH6pPH2n6WOZqvgklsFmlwiqrAllWZLmYktB7o+DQ==}
+  /@delta62/micro-form@0.3.1(react@18.2.0):
+    resolution: {integrity: sha512-H3hwsRVcN7ogGDTGl47/q/uj9j5+Iz+da9mwInmONOJiwer3PqMToimUET66NUvHBoXtgveMAW8fcenBgzVziQ==}
     peerDependencies:
-      classnames: ^2.2.6
       react: ^18.2.0
     dependencies:
-      classnames: 2.3.2
       react: 18.2.0
     dev: false
 
@@ -814,8 +808,8 @@ packages:
       binary-extensions: 2.2.0
     dev: true
 
-  /is-core-module@2.11.0:
-    resolution: {integrity: sha512-RRjxlvLDkD1YJwDbroBHMb+cukurkDWNyHx7D3oNB5x9rb5ogcksMC5wHCadcXoo67gVr/+3GFySh3134zi6rw==}
+  /is-core-module@2.12.0:
+    resolution: {integrity: sha512-RECHCBCd/viahWmwj6enj19sKbHfJrddi/6cBDsNTKbNq0f7VeaUkBo60BqzvPqo/W54ChS62Z5qyun7cfOMqQ==}
     dependencies:
       has: 1.0.3
     dev: true
@@ -1233,7 +1227,7 @@ packages:
     resolution: {integrity: sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==}
     hasBin: true
     dependencies:
-      is-core-module: 2.11.0
+      is-core-module: 2.12.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: true

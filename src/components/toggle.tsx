@@ -33,9 +33,7 @@ export let Toggle = () => {
         down: Date.now(),
       })
     }
-  }, [addLog, userId, isAsleep])
-
-  let label = isAsleep ? 'Wake up' : 'Go to sleep'
+  }, [addLog, updateLog, recentLogId, userId, isAsleep])
 
   return (
     <button
@@ -44,7 +42,7 @@ export let Toggle = () => {
       onClick={onClick}
       disabled={isLoading}
     >
-      {label}
+      {isAsleep ? 'Wake up' : 'Go to sleep'}
     </button>
   )
 }

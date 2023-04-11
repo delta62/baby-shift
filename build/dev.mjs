@@ -64,6 +64,7 @@ let ctx = await esbuild.context({
     API_KEY: JSON.stringify(process.env.API_KEY),
     PROJECT_ID: JSON.stringify(process.env.PROJECT_ID),
     VERSION: JSON.stringify(pkg.version),
+    PRODUCTION: JSON.stringify(false),
   },
   plugins: [
     copy({

@@ -21,7 +21,7 @@ export let historyApi = createApi({
       query: (update: UpdateArgs) => ({
         path: `history/${update.id}`,
         type: 'update',
-        document: { down: update.down },
+        document: update,
       }),
     }),
     getLogs: build.query<History[], void>({

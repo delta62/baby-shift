@@ -5,7 +5,7 @@ import styles from './history-list.module.scss'
 
 export let HistoryList = () => {
   let { items } = useGetLogsQuery(undefined, {
-    pollingInterval: 1_000 * 60 * 15,
+    pollingInterval: 1_000 * 60 * 5,
     refetchOnFocus: true,
     selectFromResult: getHistoryAsItems,
   })

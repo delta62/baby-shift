@@ -4,6 +4,7 @@ declare module '*.module.scss' {
 }
 
 declare const API_KEY: string
+declare const PRODUCTION: boolean
 declare const PROJECT_ID: string
 declare const VERSION: string
 

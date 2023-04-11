@@ -1,11 +1,20 @@
-import { CurrentTime, Status, Toggle, HistoryList } from '@components'
+import {
+  CurrentTime,
+  Status,
+  Toggle,
+  HistoryList,
+  HistoryForm,
+} from '@components'
 import { Redirect } from '@delta62/micro-router'
-import { State, getIsLoggedIn } from '@store'
+import { State, getIsAsleep, getIsLoggedIn } from '@store'
 import { useSelector } from 'react-redux'
+import { useGetHistoryState } from '@clients'
 import styles from './main-page.module.scss'
 
 export let MainPage = () => {
   let isLoggedIn = useSelector<State>(getIsLoggedIn)
+  let { data: history = [] } = useGetHistoryState(undefined)
+  let isAwake = !getIsAsleep(history)
 
   return (
     <>
@@ -15,6 +24,7 @@ export let MainPage = () => {
       </section>
       <Status />
       <Toggle />
+      {isAwake && <HistoryForm />}
       <section className={styles.two}>
         <HistoryList />
       </section>
