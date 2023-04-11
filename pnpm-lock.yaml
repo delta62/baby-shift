@@ -2,8 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@delta62/firebase-client':
-    specifier: ^1.0.0
-    version: link:../game-calendar/packages/firebase-client
+    specifier: ^1.0.1
+    version: 1.0.1
   '@delta62/micro-form':
     specifier: ^0.3.1
     version: 0.3.1(react@18.2.0)
@@ -84,6 +84,10 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
+
+  /@delta62/firebase-client@1.0.1:
+    resolution: {integrity: sha512-liIeqG6VZ41Jxq/XnQ6livSgnnAAJ2vyQkE3AT94LgfcdVxOouys04H2FffKAbK5k7HM0BVeic7IJNVp2Ad1tw==}
+    dev: false
 
   /@delta62/micro-form@0.3.1(react@18.2.0):
     resolution: {integrity: sha512-H3hwsRVcN7ogGDTGl47/q/uj9j5+Iz+da9mwInmONOJiwer3PqMToimUET66NUvHBoXtgveMAW8fcenBgzVziQ==}
