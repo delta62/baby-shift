@@ -4,6 +4,7 @@ import {
   Toggle,
   HistoryList,
   HistoryForm,
+  Version,
 } from '@components'
 import { Redirect } from '@delta62/micro-router'
 import { State, getIsAsleep, getIsLoggedIn } from '@store'
@@ -18,6 +19,7 @@ export let MainPage = () => {
 
   return (
     <>
+      <Version version={VERSION} />
       <Redirect to="/login" when={!isLoggedIn} />
       <section className={`${styles.one} ${styles.center}`}>
         <CurrentTime />

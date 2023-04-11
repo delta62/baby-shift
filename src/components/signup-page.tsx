@@ -14,8 +14,8 @@ export let SignupPage = () => {
   let isLoggedIn = useSelector<State>(getIsLoggedIn)
 
   let onSubmit = useCallback(
-    (fields: FormFields) => {
-      dispatch(signup(fields))
+    (fields: unknown) => {
+      dispatch(signup(fields as FormFields))
     },
     [dispatch]
   )

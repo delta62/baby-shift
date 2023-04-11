@@ -1,13 +1,18 @@
 import { Form, FormItem } from '@delta62/micro-form'
-import { useCallback } from 'react'
+import { useCallback, useRef } from 'react'
 import { useGetHistoryState, useUpdateLogMutation } from '@clients'
-import styles from './bottle-form.module.scss'
 import { getMostRecentLog } from '@store'
+import styles from './bottle-form.module.scss'
 
-export let BottleForm = () => {
+interface Props {
+  onSubmit(): void
+}
+
+export let BottleForm = (props: Props) => {
   let [update] = useUpdateLogMutation()
   let { data } = useGetHistoryState(undefined)
   let latest = getMostRecentLog(data ?? [])
+  let inputRef = useRef<HTMLInputElement>(null)
 
   let onSubmit = useCallback(
     (fields: Record<string, string>) => {
@@ -19,6 +24,8 @@ export let BottleForm = () => {
       let { id } = latest
 
       update({ id, bottles })
+      inputRef.current!.value = ''
+      props.onSubmit()
     },
     [latest, update]
   )
@@ -33,11 +40,15 @@ export let BottleForm = () => {
       }}
     >
       <FormItem
+        ref={inputRef}
         type="number"
         name="bottle"
         label="🍼"
         suffix="oz"
         showErrors={false}
+        min={0}
+        max={10}
+        step="any"
       />
       <FormItem type="submit" label="log" />
     </Form>
