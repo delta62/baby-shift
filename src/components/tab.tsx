@@ -1,5 +1,4 @@
 import { MouseEvent, useCallback, useState } from 'react'
-import classNames from 'classnames'
 import styles from './tab.module.scss'
 
 export interface TabApi {
@@ -13,6 +12,9 @@ export interface Props {
 
 export let Tab = ({ renderChildren, label }: Props) => {
   let [selected, setSelected] = useState(false)
+  let className = [styles.tab, selected && styles.selected]
+    .filter(x => !!x)
+    .join(' ')
 
   let deselect = useCallback(() => {
     setSelected(false)
@@ -27,17 +29,14 @@ export let Tab = ({ renderChildren, label }: Props) => {
   )
 
   return (
-    <div
-      className={classNames(styles.tab, { [styles.selected]: selected })}
-      onClick={onClick}
-    >
+    <div className={className} onClick={onClick}>
       <div className={styles.half}>
         <span className={styles.grow}>{label}</span>
         <i className={styles.chevronRight} />
       </div>
       <div className={styles.half}>
         <i className={styles.chevronLeft} />
-        <div className={classNames(styles.grow, styles.content)}>
+        <div className={`${styles.grow}, ${styles.content}`}>
           {renderChildren({ deselect })}
         </div>
       </div>

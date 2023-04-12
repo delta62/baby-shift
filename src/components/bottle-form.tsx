@@ -49,7 +49,7 @@ export let BottleForm = (props: Props) => {
         min={0}
         max={10}
         step="any"
-        inputMode="numeric"
+        inputMode="decimal"
       />
       <FormItem type="submit" label="✔" />
     </Form>

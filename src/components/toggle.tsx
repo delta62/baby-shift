@@ -21,6 +21,8 @@ export let Toggle = () => {
   let onClick = useCallback(() => {
     if (isAsleep) {
       addLog({
+        bottles: [],
+        diapers: [],
         id: `${Date.now()}`,
         whom: userId,
         up: Date.now(),
