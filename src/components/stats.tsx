@@ -22,8 +22,8 @@ let peeSum = (diapers?: number[]): string => {
 let formatDuration = (start: number, end: number | null): string => {
   if (!end) end = Date.now()
   let delta = (end - start) / 1000
-  let mm = Math.round(delta % 60)
   let hh = Math.floor(delta / 3600)
+  let mm = Math.floor((delta - hh * 3600) / 60)
 
   return `${hh}:${mm}`
 }
