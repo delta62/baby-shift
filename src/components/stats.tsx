@@ -18,21 +18,36 @@ let peeSum = (diapers?: number[]): string => {
   return `${sum}`
 }
 
+let formatDuration = (start: number, end: number | null): string => {
+  if (!end) return '--'
+  let delta = (end - start) / 1000
+  let mm = Math.round(delta % 60)
+  let hh = Math.floor(delta / 3600)
+
+  return `${hh}:${mm}`
+}
+
 export interface Props {
   bottles?: number[]
   diapers?: number[]
+  startTime: number
+  endTime: number | null
 }
 
-export let Stats = ({ bottles, diapers }: Props) => {
+export let Stats = ({ bottles, diapers, startTime, endTime }: Props) => {
   let bottleVolume = bottleSum(bottles)
   let pooVolume = pooSum(diapers)
   let peeVolume = peeSum(diapers)
+  let duration = formatDuration(startTime, endTime)
 
   return (
     <div className={styles.stats}>
-      <span className={styles.stat}>🍼 {bottleVolume}</span>
-      <span className={styles.stat}>💩 {pooVolume}</span>
+      <span className={`${styles.stat} ${styles.wideStat}`}>🕑 {duration}</span>
+      <span className={`${styles.stat} ${styles.wideStat}`}>
+        🍼 {bottleVolume}
+      </span>
       <span className={styles.stat}>💦 {peeVolume}</span>
+      <span className={styles.stat}>💩 {pooVolume}</span>
     </div>
   )
 }

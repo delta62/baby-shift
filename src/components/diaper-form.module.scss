@@ -3,6 +3,14 @@
   display: flex;
   gap: 2rem;
   justify-content: center;
+
+  input[type='submit'] {
+    background-color: #004455;
+    border: 1px solid #004455;
+    border-radius: 0.5rem;
+    color: #eee;
+    padding: 0.2rem 0.5rem;
+  }
 }
 
 .form-field {

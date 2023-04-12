@@ -1,12 +1,18 @@
 .wrapper {
+  align-items: center;
+  display: flex;
   padding: 1rem 0;
-  border-bottom: 1px dotted #666;
+
+  &:not(:last-child) {
+    border-bottom: 1px dotted #666;
+  }
 }
 
 .item {
-  align-items: center;
   display: flex;
+  flex-grow: 1;
   font-size: 1.2rem;
+  justify-content: space-between;
   padding: 0.5rem 0;
 }
 
@@ -24,4 +30,11 @@
   display: inline-block;
   font-size: 1.5rem;
   padding-right: 0.5rem;
+  text-align: center;
+  width: 2rem;
+}
+
+.vertical {
+  display: flex;
+  flex-direction: column;
 }

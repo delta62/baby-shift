@@ -16,7 +16,7 @@ export let BottleForm = (props: Props) => {
 
   let onSubmit = useCallback(
     (fields: Record<string, string>) => {
-      let bottle = parseInt(fields.bottle, 10) || 0
+      let bottle = parseFloat(fields.bottle) || 0
       if (!latest || bottle <= 0) return
 
       let oldBottles = latest.bottles ?? []
