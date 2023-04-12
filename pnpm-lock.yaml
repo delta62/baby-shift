@@ -5,8 +5,8 @@ dependencies:
     specifier: ^1.0.1
     version: 1.0.1
   '@delta62/micro-form':
-    specifier: ^1.1.0
-    version: 1.1.0(react@18.2.0)
+    specifier: ^1.2.1
+    version: 1.2.1(react@18.2.0)
   '@delta62/micro-router':
     specifier: ^2.0.0
     version: 2.0.0(react@18.2.0)
@@ -89,8 +89,8 @@ packages:
     resolution: {integrity: sha512-liIeqG6VZ41Jxq/XnQ6livSgnnAAJ2vyQkE3AT94LgfcdVxOouys04H2FffKAbK5k7HM0BVeic7IJNVp2Ad1tw==}
     dev: false
 
-  /@delta62/micro-form@1.1.0(react@18.2.0):
-    resolution: {integrity: sha512-6ybeTBo3DkVTN/Rg0SHzZVD6T9N95mamMb4nfE0GZx+SoavpxnEGpNLTFIRJ7O6wxphxSdbwQ8GQmSvp/MKUHQ==}
+  /@delta62/micro-form@1.2.1(react@18.2.0):
+    resolution: {integrity: sha512-6h/0ae234/JDJryl/I2IpTZMzLgScyH0xW2nmKSPOa175yTPm4Q2Cu1E7iUm1H8exMwVLGLN+TgE+0fEyQ7+og==}
     peerDependencies:
       react: ^18.2.0
     dependencies:

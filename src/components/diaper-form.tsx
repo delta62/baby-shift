@@ -43,7 +43,7 @@ export let DiaperForm = (props: Props) => {
     >
       <FormItem
         ref={peeRef}
-        type={'radio' as any}
+        type="radio"
         name="diaper"
         label="💦"
         value="1"
@@ -51,7 +51,7 @@ export let DiaperForm = (props: Props) => {
       />
       <FormItem
         ref={pooRef}
-        type={'radio' as any}
+        type="radio"
         name="diaper"
         value="2"
         label="💩"
