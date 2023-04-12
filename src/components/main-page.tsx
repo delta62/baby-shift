@@ -4,6 +4,7 @@ import {
   Toggle,
   HistoryList,
   HistoryForm,
+  Splash,
   Version,
 } from '@components'
 import { Redirect } from '@delta62/micro-router'
@@ -14,13 +15,14 @@ import styles from './main-page.module.scss'
 
 export let MainPage = () => {
   let isLoggedIn = useSelector<State>(getIsLoggedIn)
-  let { data: history = [] } = useGetHistoryState(undefined)
+  let { data: history = [], isLoading } = useGetHistoryState(undefined)
   let isAwake = !getIsAsleep(history)
 
   return (
     <>
       <Version version={VERSION} />
       <Redirect to="/login" when={!isLoggedIn} />
+      {isLoading && <Splash />}
       <section className={`${styles.time} ${styles.center}`}>
         <CurrentTime />
       </section>
