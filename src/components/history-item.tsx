@@ -5,13 +5,21 @@ import styles from './history-item.module.scss'
 export interface History {
   id: string
   bottles?: number[]
+  diapers?: number[]
   down: number | null
   emoji: string
   up: number
   whom: string
 }
 
-export let HistoryItem = ({ emoji, up, down, whom, bottles }: History) => {
+export let HistoryItem = ({
+  emoji,
+  up,
+  down,
+  whom,
+  bottles,
+  diapers,
+}: History) => {
   return (
     <li className={styles.wrapper}>
       <div className={styles.item}>
@@ -30,7 +38,7 @@ export let HistoryItem = ({ emoji, up, down, whom, bottles }: History) => {
         )}
         <Badge text={whom} />
       </div>
-      <Stats bottles={bottles} />
+      <Stats bottles={bottles} diapers={diapers} />
     </li>
   )
 }

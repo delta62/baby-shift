@@ -1,17 +1,17 @@
-import { BottleForm, Tab, TabApi } from '@components'
+import { BottleForm, DiaperForm, Tab, TabApi } from '@components'
 import styles from './history-form.module.scss'
 
 let renderBottleForm = ({ deselect }: TabApi) => (
   <BottleForm onSubmit={deselect} />
 )
 
-let renderDiaperForm = ({ deselect }: TabApi) => <p>DIapler time</p>
+let renderDiaperForm = ({ deselect }: TabApi) => (
+  <DiaperForm onSubmit={deselect} />
+)
 
-export let HistoryForm = () => {
-  return (
-    <div className={styles.verticalTabs}>
-      <Tab label="Log bottle" renderChildren={renderBottleForm} />
-      <Tab label="Log diaper" renderChildren={renderDiaperForm} />
-    </div>
-  )
-}
+export let HistoryForm = () => (
+  <div className={styles.verticalTabs}>
+    <Tab label="Log bottle" renderChildren={renderBottleForm} />
+    <Tab label="Log diaper" renderChildren={renderDiaperForm} />
+  </div>
+)

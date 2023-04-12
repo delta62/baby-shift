@@ -6,19 +6,33 @@ let bottleSum = (bottles?: number[]): string => {
   return `${sum}oz`
 }
 
-export interface Props {
-  bottles?: number[]
+let pooSum = (diapers?: number[]): string => {
+  if (!diapers) return '--'
+  let sum = diapers.filter(x => x === 2).length
+  return `${sum}`
 }
 
-export let Stats = ({ bottles }: Props) => {
+let peeSum = (diapers?: number[]): string => {
+  if (!diapers) return '--'
+  let sum = diapers.filter(x => x === 1).length
+  return `${sum}`
+}
+
+export interface Props {
+  bottles?: number[]
+  diapers?: number[]
+}
+
+export let Stats = ({ bottles, diapers }: Props) => {
   let bottleVolume = bottleSum(bottles)
+  let pooVolume = pooSum(diapers)
+  let peeVolume = peeSum(diapers)
 
   return (
     <div className={styles.stats}>
       <span className={styles.stat}>🍼 {bottleVolume}</span>
-      <span className={styles.stat}>🚽 --</span>
-      <span className={styles.stat}>💩 --</span>
-      <span className={styles.stat}>💦 --</span>
+      <span className={styles.stat}>💩 {pooVolume}</span>
+      <span className={styles.stat}>💦 {peeVolume}</span>
     </div>
   )
 }

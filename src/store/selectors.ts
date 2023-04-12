@@ -2,7 +2,7 @@ import { History } from '@components'
 import { createSelector } from '@reduxjs/toolkit'
 import { State } from '@store'
 
-type QuerySelector<D, R extends Record<string, any>> = (arg: { data?: D }) => R
+type QueryArgs<D> = { data?: D }
 
 export let getIsLoggedIn = (state: State): boolean => !!state.auth
 
@@ -17,9 +17,6 @@ export let getIsAsleep = createSelector(
   (recent: History | null): boolean => !!recent?.down
 )
 
-export let getHistoryAsItems: QuerySelector<
-  History[],
-  { items: History[] }
-> = ({ data }) => ({
+export let getHistoryAsItems = ({ data }: QueryArgs<History[]>) => ({
   items: data ?? [],
 })

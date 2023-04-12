@@ -49,8 +49,9 @@ export let BottleForm = (props: Props) => {
         min={0}
         max={10}
         step="any"
+        inputMode="numeric"
       />
-      <FormItem type="submit" label="log" />
+      <FormItem type="submit" label="✔" />
     </Form>
   )
 }

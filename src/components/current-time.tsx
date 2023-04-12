@@ -11,9 +11,11 @@ let formatTime = (date: Date) => {
 
 export let CurrentTime = () => {
   let time = useTime()()
+  let hms = formatTime(time)
+
   return (
-    <time className={styles.currentTime} dateTime={formatTime(time)}>
-      {formatTime(time)}
+    <time className={styles.currentTime} dateTime={hms}>
+      {hms}
     </time>
   )
 }
