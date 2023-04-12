@@ -4,7 +4,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     (async () => {
       let cache = await caches.open(CACHE_NAME)
-      await cache.addAll(['/', '/index.js', '/styles.css', '/index.css'])
+      await cache.addAll(['/', '/index.js', '/index.css'])
     })()
   )
 })
