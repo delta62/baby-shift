@@ -1,3 +1,4 @@
+import { useDuration } from '@hooks'
 import styles from './stats.module.scss'
 
 let bottleSum = (bottles?: number[]): string => {
@@ -35,6 +36,9 @@ export interface Props {
 }
 
 export let Stats = ({ bottles, diapers, startTime, endTime }: Props) => {
+  // Force a re-render every minute to update the duration display
+  useDuration(1_000)
+
   let bottleVolume = bottleSum(bottles)
   let pooVolume = pooSum(diapers)
   let peeVolume = peeSum(diapers)
