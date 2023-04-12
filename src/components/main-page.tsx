@@ -21,13 +21,15 @@ export let MainPage = () => {
     <>
       <Version version={VERSION} />
       <Redirect to="/login" when={!isLoggedIn} />
-      <section className={`${styles.one} ${styles.center}`}>
+      <section className={`${styles.time} ${styles.center}`}>
         <CurrentTime />
       </section>
-      <Status />
-      <Toggle />
-      {isAwake && <HistoryForm />}
-      <section className={styles.two}>
+      <section className={`${styles.status} ${styles.center}`}>
+        <Status />
+        <Toggle />
+        {isAwake && <HistoryForm />}
+      </section>
+      <section className={styles.history}>
         <HistoryList />
       </section>
     </>

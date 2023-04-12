@@ -12,7 +12,6 @@ export let HistoryList = () => {
 
   return (
     <>
-      <h3 className={styles.header}>Past events</h3>
       <hr className={styles.divider} />
       <div className={styles.scrollContainer}>
         <ol className={styles.list}>
