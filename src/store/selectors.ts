@@ -14,7 +14,7 @@ export let getMostRecentLog = (history: History[]): History | null =>
 
 export let getIsAsleep = createSelector(
   getMostRecentLog,
-  (recent: History | null): boolean => !!recent?.down
+  (recent: History | null): boolean => !recent || !!recent.down
 )
 
 export let getHistoryAsItems = ({ data }: QueryArgs<History[]>) => ({
