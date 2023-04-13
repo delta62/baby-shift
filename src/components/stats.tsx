@@ -7,16 +7,16 @@ let bottleSum = (bottles?: number[]): string => {
   return `${sum}oz`
 }
 
-let pooSum = (diapers?: number[]): string => {
-  if (!diapers) return '--'
+let pooSum = (diapers?: number[]): number => {
+  if (!diapers) return 0
   let sum = diapers.filter(x => x === 2).length
-  return `${sum}`
+  return sum
 }
 
-let peeSum = (diapers?: number[]): string => {
-  if (!diapers) return '--'
+let peeSum = (diapers?: number[]): number => {
+  if (!diapers) return 0
   let sum = diapers.filter(x => x === 1).length
-  return `${sum}`
+  return sum
 }
 
 let formatDuration = (start: number, end: number | null): string => {
@@ -37,7 +37,7 @@ export interface Props {
 
 export let Stats = ({ bottles, diapers, startTime, endTime }: Props) => {
   // Force a re-render every minute to update the duration display
-  useDuration(1_000)
+  useDuration(60_000)
 
   let bottleVolume = bottleSum(bottles)
   let pooVolume = pooSum(diapers)
