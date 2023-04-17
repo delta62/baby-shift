@@ -1,4 +1,4 @@
-import { Badge, Stats } from '@components'
+import { Badge, Stats, Timespan, StartTime } from '@components'
 import styles from './history-item.module.scss'
 
 export interface History {
@@ -10,32 +10,6 @@ export interface History {
   up: number
   whom: string
 }
-
-let formatTime = (time: Date | number): string => {
-  if (typeof time === 'number') time = new Date(time)
-  let hh = `${time.getHours()}`.padStart(2, '0')
-  let mm = `${time.getMinutes()}`.padStart(2, '0')
-
-  return `${hh}:${mm}`
-}
-
-let Timespan = ({ start, end }: { start: number; end: number }) => (
-  <>
-    <span className={styles.statement}>
-      <span className={styles.up}>{formatTime(start)}</span>
-    </span>
-    -
-    <span className={styles.statement}>
-      <span className={styles.up}>{formatTime(end)}</span>
-    </span>
-  </>
-)
-
-let StartTime = ({ time }: { time: number }) => (
-  <span className={styles.statement}>
-    up at <span className={styles.up}>{formatTime(time)}</span>
-  </span>
-)
 
 export let HistoryItem = ({
   emoji,

@@ -1,0 +1,10 @@
+@use 'colors';
+
+.up {
+  color: colors.$text-highlight;
+  font-weight: bold;
+}
+
+.statement {
+  padding: 0 0.5rem;
+}
