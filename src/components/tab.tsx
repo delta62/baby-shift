@@ -36,7 +36,7 @@ export let Tab = ({ renderChildren, label }: Props) => {
       </div>
       <div className={styles.half}>
         <i className={styles.chevronLeft} />
-        <div className={`${styles.grow}, ${styles.content}`}>
+        <div className={`${styles.grow} ${styles.content}`}>
           {renderChildren({ deselect })}
         </div>
       </div>

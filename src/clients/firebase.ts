@@ -26,6 +26,14 @@ export interface UpdateRequest {
 
 export type FirebaseArgs = CreateRequest | ListRequest | UpdateRequest
 
+let getPath = (path: string) => {
+  if (PRODUCTION) {
+    return path
+  }
+
+  return path.replace(/^history/, 'dev')
+}
+
 let firebaseQuery = async <R>(
   args: FirebaseArgs,
   { dispatch, getState }: BaseQueryApi
@@ -45,7 +53,7 @@ let firebaseQuery = async <R>(
   switch (args.type) {
     case 'create':
       await create(PROJECT_ID)({
-        path: args.path,
+        path: getPath(args.path),
         authToken: auth.idToken,
         document: args.document,
         documentId: args.document.id,
@@ -53,7 +61,7 @@ let firebaseQuery = async <R>(
       return { data: null as R }
     case 'list':
       let response = await list(PROJECT_ID)({
-        path: args.path,
+        path: getPath(args.path),
         authToken: auth.idToken,
         orderBy: args.orderBy,
         pageSize: args.pageSize,
@@ -62,7 +70,7 @@ let firebaseQuery = async <R>(
       return { data }
     case 'update':
       await update(PROJECT_ID)({
-        path: args.path,
+        path: getPath(args.path),
         document: args.document,
         authToken: auth.idToken,
       })

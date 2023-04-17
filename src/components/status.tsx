@@ -12,7 +12,7 @@ export let Status = () => {
     <>
       <h1>{emoji}</h1>
       <h2 className={styles.center}>
-        The baby is currently <span className={styles[status]}>{status}</span>
+        The baby is <span className={styles[status]}>{status}</span>
       </h2>
     </>
   )
