@@ -4,6 +4,11 @@ import clean from 'esbuild-plugin-clean'
 import copy from 'esbuild-plugin-copy'
 import fs from 'fs/promises'
 import { sassPlugin, postcssModules } from 'esbuild-sass-plugin'
+import * as path from 'path'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+
+let __dirname = dirname(fileURLToPath(import.meta.url))
 
 if (['API_KEY', 'PROJECT_ID'].some(name => !process.env[name])) {
   throw new Error('API_KEY and PROJECT_ID must be set.')
@@ -35,6 +40,7 @@ await esbuild.build({
       patterns: ['./dist'],
     }),
     sassPlugin({
+      loadPaths: [path.resolve(__dirname, '..', 'src', 'styles')],
       transform: postcssModules({
         localsConvention: 'camelCaseOnly',
       }),
