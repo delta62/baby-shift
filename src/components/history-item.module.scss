@@ -1,10 +1,12 @@
+@use 'colors';
+
 .wrapper {
   align-items: center;
   display: flex;
   padding: 1rem 0;
 
   &:not(:last-child) {
-    border-bottom: 1px dotted #666;
+    border-bottom: 1px dotted colors.$border-dim;
   }
 }
 
@@ -22,7 +24,7 @@
 
 .up,
 .down {
-  color: #fff;
+  color: colors.$text-highlight;
   font-weight: bold;
 }
 

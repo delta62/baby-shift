@@ -1,10 +1,12 @@
+@use 'colors';
+
 .stats {
   display: flex;
   font-size: 0.9rem;
 }
 
 .stat {
-  color: #aaa;
+  color: colors.$text-dim;
   margin: 0 0.5rem;
   width: 3rem;
 }

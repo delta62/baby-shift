@@ -1,6 +1,12 @@
+@use 'colors';
+
 .splash {
   align-items: center;
-  background: radial-gradient(circle at bottom, #2b2b3a 0, #112 100%);
+  background: radial-gradient(
+    circle at bottom,
+    colors.$bg-gradient-start 0,
+    colors.$bg-gradient-end 100%
+  );
   bottom: 0;
   display: flex;
   justify-content: center;

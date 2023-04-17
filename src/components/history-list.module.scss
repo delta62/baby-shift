@@ -1,10 +1,12 @@
+@use 'colors';
+
 .header {
   font-size: 1rem;
   text-align: center;
 }
 
 .divider {
-  border-color: #666;
+  border-color: colors.$border-dim;
 }
 
 .list {

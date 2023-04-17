@@ -1,5 +1,7 @@
+@use 'colors';
+
 .version {
-  color: #aaa;
+  color: colors.$text-dim;
   font-size: 0.9rem;
   padding: 0.5rem;
   position: absolute;

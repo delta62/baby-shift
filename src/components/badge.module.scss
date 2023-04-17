@@ -1,5 +1,7 @@
+@use 'colors';
+
 .badge {
-  border: 1px solid #006699;
+  border: 1px solid colors.$border-badge;
   border-radius: 0.3rem;
   display: inline-block;
   font-size: 0.9rem;

@@ -1,6 +1,8 @@
+@use 'colors';
+
 .vertical-tabs {
-  background: #19292d;
-  border: 1px solid #004455;
+  background: colors.$form-surface;
+  border: 1px solid colors.$border-form;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;

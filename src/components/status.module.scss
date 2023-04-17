@@ -1,12 +1,14 @@
+@use 'colors';
+
 .center {
   line-height: 2.5rem;
   text-align: center;
 }
 
 .asleep {
-  color: green;
+  color: colors.$success;
 }
 
 .awake {
-  color: #1eb2ec;
+  color: colors.$neutral;
 }
