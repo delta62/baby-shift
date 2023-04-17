@@ -5,7 +5,6 @@ import {
   HistoryList,
   HistoryForm,
   Splash,
-  Version,
 } from '@components'
 import { useRedirect } from '@delta62/micro-router'
 import { State, getIsAsleep, getIsLoggedIn } from '@store'
@@ -21,7 +20,6 @@ export let MainPage = () => {
 
   return (
     <div className={`${styles.wrapper} ${isAwake ? '' : styles.asleep}`}>
-      <Version version={VERSION} />
       {isLoading && <Splash />}
       <section className={styles.time}>
         <CurrentTime />

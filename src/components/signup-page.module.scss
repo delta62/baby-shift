@@ -1,0 +1,40 @@
+@use 'forms';
+
+.signup-page {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  height: 100%;
+  justify-content: center;
+
+  input[type='submit'] {
+    @include forms.button-primary;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-item {
+  @include forms.item;
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-field {
+  @include forms.field;
+  width: 55%;
+}
+
+.invalid.touched {
+  @include forms.invalid;
+
+  .form-field {
+    @include forms.invalid;
+  }
+}

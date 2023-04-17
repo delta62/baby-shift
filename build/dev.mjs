@@ -6,7 +6,11 @@ import * as typeCheck from '@jgoz/esbuild-plugin-typecheck'
 import http from 'http'
 import dotenv from 'dotenv'
 import fs from 'fs/promises'
+import * as path from 'path'
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
 
+let __dirname = dirname(fileURLToPath(import.meta.url))
 let pkg = JSON.parse(await fs.readFile('./package.json', { encoding: 'utf-8' }))
 
 dotenv.config()
@@ -79,6 +83,7 @@ let ctx = await esbuild.context({
       patterns: ['./dist'],
     }),
     sassPlugin({
+      loadPaths: [path.resolve(__dirname, '..', 'src', 'styles')],
       transform: postcssModules({
         localsConvention: 'camelCaseOnly',
       }),

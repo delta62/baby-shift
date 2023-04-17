@@ -1,3 +1,5 @@
+@use 'forms';
+
 .form {
   align-items: center;
   display: flex;
@@ -5,29 +7,20 @@
   justify-content: center;
 
   input[type='submit'] {
-    background-color: #004455;
-    border: 1px solid #004455;
-    border-radius: 0.5rem;
-    color: #eee;
-    padding: 0.2rem 0.5rem;
+    @include forms.submit;
   }
 }
 
 .form-field {
-  background: #19292d;
-  border: 1px solid #004455;
-  border-radius: 0.2rem;
-  color: #eee;
-  padding: 0.5rem;
+  @include forms.field;
   margin: 0 0.2rem 0 0.5rem;
-  outline: none;
   width: 3rem;
 }
 
 .form-item {
-  display: inline;
+  @include forms.item;
 }
 
 .form-suffix {
-  font-size: 0.8rem;
+  @include forms.suffix;
 }
