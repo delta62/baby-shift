@@ -33,6 +33,10 @@
     -moz-appearance: textfield;
   }
 
+  input[type='time']::-webkit-calendar-picker-indicator {
+    background: none;
+  }
+
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;

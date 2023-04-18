@@ -1,44 +1,43 @@
 import { Form, FormItem } from '@delta62/micro-form'
 import { useCallback, useRef } from 'react'
 import { useGetHistoryState, useUpdateLogMutation } from '@clients'
-import { getMostRecentLog } from '@store'
+import { getHistoryLog } from '@store'
 import styles from './bottle-form.module.scss'
 
 interface Props {
-  onSubmit(): void
+  id: string
+  onSubmit?(): void
+}
+
+const CLASS_NAMES = {
+  form: styles.form,
+  field: styles.formField,
+  item: styles.formItem,
 }
 
 export let BottleForm = (props: Props) => {
   let [update] = useUpdateLogMutation()
   let { data } = useGetHistoryState(undefined)
-  let latest = getMostRecentLog(data ?? [])
+  let item = getHistoryLog(data ?? [], props.id)
   let inputRef = useRef<HTMLInputElement>(null)
 
   let onSubmit = useCallback(
     (fields: Record<string, string>) => {
       let bottle = parseFloat(fields.bottle) || 0
-      if (!latest || bottle <= 0) return
+      if (!item || bottle <= 0) return
 
-      let oldBottles = latest.bottles ?? []
+      let oldBottles = item.bottles ?? []
       let bottles = [...oldBottles, bottle]
-      let { id } = latest
 
-      update({ id, bottles })
+      update({ id: item.id, bottles })
       inputRef.current!.value = ''
-      props.onSubmit()
+      props.onSubmit?.()
     },
-    [latest, update]
+    [item, update]
   )
 
   return (
-    <Form
-      onSubmit={onSubmit}
-      classNames={{
-        form: styles.form,
-        field: styles.formField,
-        item: styles.formItem,
-      }}
-    >
+    <Form onSubmit={onSubmit} classNames={CLASS_NAMES}>
       <FormItem
         ref={inputRef}
         type="number"

@@ -1,0 +1,37 @@
+@use 'colors';
+@use 'forms';
+
+.form {
+  align-items: center;
+  border-bottom: 1px solid colors.$border-form;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  padding-bottom: 1rem;
+
+  input[type='submit'] {
+    @include forms.submit;
+  }
+}
+
+.form-field {
+  @include forms.field;
+  width: 14rem;
+}
+
+.form-item {
+  @include forms.item;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-suffix {
+  @include forms.suffix;
+}
+
+.to {
+  font-size: 0.9rem;
+}

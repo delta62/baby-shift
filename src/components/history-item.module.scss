@@ -18,16 +18,6 @@
   padding: 0.5rem 0;
 }
 
-.statement {
-  padding: 0 0.5rem;
-}
-
-.up,
-.down {
-  color: colors.$text-highlight;
-  font-weight: bold;
-}
-
 .emoji {
   display: inline-block;
   font-size: 1.5rem;
@@ -39,4 +29,5 @@
 .vertical {
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }

@@ -5,15 +5,12 @@
   text-align: center;
 }
 
-.divider {
-  border-color: colors.$border-dim;
-}
-
 .list {
   list-style-type: none;
 }
 
 .scroll-container {
+  border-top: 1px solid colors.$border-dim;
   flex: 1 1 0;
   overflow-x: hidden;
   overflow-y: auto;

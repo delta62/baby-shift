@@ -9,6 +9,14 @@
   color: colors.$text-dim;
   margin: 0 0.5rem;
   width: 3rem;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .wide-stat {

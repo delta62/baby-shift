@@ -12,6 +12,10 @@ export let getUserId = (state: State): string =>
 export let getMostRecentLog = (history: History[]): History | null =>
   history[0] ?? null
 
+export let getHistoryLog = (history: History[], id: string): History | null => {
+  return history.find(h => h.id === id) ?? null
+}
+
 export let getIsAsleep = createSelector(
   getMostRecentLog,
   (recent: History | null): boolean => !recent || !!recent.down

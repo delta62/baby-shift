@@ -11,15 +11,12 @@ export let HistoryList = () => {
   })
 
   return (
-    <>
-      <hr className={styles.divider} />
-      <div className={styles.scrollContainer}>
-        <ol className={styles.list}>
-          {items.map(item => (
-            <HistoryItem key={item.up} {...item} />
-          ))}
-        </ol>
-      </div>
-    </>
+    <div className={styles.scrollContainer}>
+      <ol className={styles.list}>
+        {items.map(item => (
+          <HistoryItem key={item.up} {...item} />
+        ))}
+      </ol>
+    </div>
   )
 }
