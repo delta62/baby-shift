@@ -1,16 +1,23 @@
 @use 'colors';
 
-.header {
-  font-size: 1rem;
+.group {
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.group h4 {
+  border-bottom: solid 3px colors.$bg-gradient-start;
+  color: #aaa;
+  padding: 0.5rem;
   text-align: center;
 }
 
-.list {
+.group, .list {
   list-style-type: none;
 }
 
 .scroll-container {
-  border-top: 1px solid colors.$border-dim;
+  border-top: solid 3px colors.$bg-gradient-start;
   flex: 1 1 0;
   overflow-x: hidden;
   overflow-y: auto;

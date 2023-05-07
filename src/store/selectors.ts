@@ -21,6 +21,19 @@ export let getIsAsleep = createSelector(
   (recent: History | null): boolean => !recent || !!recent.down
 )
 
-export let getHistoryAsItems = ({ data }: QueryArgs<History[]>) => ({
-  items: data ?? [],
+export let getHistoryByDateAsItems = ({ data }: QueryArgs<History[]>) => ({
+  items: (data ?? []).reduce((acc, item) => {
+    const date = new Date(item.up)
+
+    const key = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`
+
+    if (acc[key]) {
+      acc[key].push(item)
+    } else {
+      acc[key] = [ item ]
+    }
+
+    return acc
+
+  }, {} as Record<string, History[]>)
 })
