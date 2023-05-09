@@ -25,7 +25,8 @@ export let getHistoryByDateAsItems = ({ data }: QueryArgs<History[]>) => ({
   items: (data ?? []).reduce((acc, item) => {
     const date = new Date(item.up)
 
-    const key = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`
+    // date.getMonth is zero-indexed
+    const key = `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`
 
     if (acc[key]) {
       acc[key].push(item)
